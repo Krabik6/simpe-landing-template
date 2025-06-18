@@ -183,19 +183,7 @@ export default function Testimonials() {
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
                   >
-                    {/* Изображение сверху */}
-                    <div className="relative h-64 sm:h-80">
-                      <Image
-                        src={testimonials[currentIndex].image}
-                        alt={testimonials[currentIndex].name + ' — фото'}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, 100vw"
-                        priority={currentIndex === 0}
-                      />
-                    </div>
-
-                    {/* Контент снизу */}
+                    {/* Контент сверху */}
                     <div className="p-6 sm:p-8">
                       {/* Блок с информацией о пользователе */}
                       <div className="flex items-center gap-4 mb-6">
@@ -231,12 +219,24 @@ export default function Testimonials() {
                       </div>
 
                       {/* Текст отзыва */}
-                      <blockquote className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-4">
+                      <blockquote className="text-base sm:text-lg text-gray-700 leading-relaxed font-light mb-6">
                         {testimonials[currentIndex].content}
                       </blockquote>
 
                       {/* Декоративная линия */}
                       <div className="w-16 h-1 bg-gray-200 rounded-full"></div>
+                    </div>
+
+                    {/* Квадратное изображение снизу */}
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].name + ' — фото'}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 100vw"
+                        priority={currentIndex === 0}
+                      />
                     </div>
                   </motion.div>
                 </AnimatePresence>
