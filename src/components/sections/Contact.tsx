@@ -80,8 +80,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="min-h-screen flex items-center bg-gray-50">
-      <div className="container mx-auto px-6 py-12">
+    <section id="contact" className="min-h-screen flex items-center bg-gray-50 py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -90,10 +90,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 tracking-tight leading-tight">
               {contact.title}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
               {contact.description}
             </p>
           </motion.div>
@@ -105,13 +105,13 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-6 order-2 lg:order-1"
             >
               <div>
-                <h3 className="text-xl font-medium mb-4 text-gray-900">
+                <h3 className="text-lg sm:text-xl font-medium mb-4 text-gray-900">
                   Свяжитесь с нами
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
                   Мы всегда рады ответить на ваши вопросы и помочь с бронированием. 
                   Обращайтесь любым удобным способом!
                 </p>
@@ -124,9 +124,9 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Телефон</h4>
-                    <a href={`tel:${contact.phone}`} className="text-gray-600 hover:text-gray-900 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Телефон</h4>
+                    <a href={`tel:${contact.phone}`} className="text-gray-600 hover:text-gray-900 transition-colors text-sm sm:text-base">
                       {contact.phone}
                     </a>
                   </div>
@@ -139,8 +139,8 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Адреса</h4>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Адреса</h4>
                     <div className="space-y-1">
                       {contact.addresses.map((address, index) => (
                         <div key={index}>
@@ -148,7 +148,7 @@ export default function Contact() {
                             href={address.mapsUrl} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-blue-600 text-sm hover:text-blue-800 transition-colors cursor-pointer"
+                            className="text-blue-600 text-xs sm:text-sm hover:text-blue-800 transition-colors cursor-pointer break-words"
                           >
                             {address.text}
                           </a>
@@ -164,9 +164,9 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-1">Часы работы</h4>
-                    <p className="text-gray-600 text-sm">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm sm:text-base">Часы работы</h4>
+                    <p className="text-gray-600 text-xs sm:text-sm">
                       Пн-Пт: 8:00 - 22:00<br />
                       Сб-Вс: 9:00 - 23:00
                     </p>
@@ -181,22 +181,23 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="order-1 lg:order-2"
             >
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <h3 className="text-xl font-medium mb-4 text-gray-900">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100">
+                <h3 className="text-lg sm:text-xl font-medium mb-4 text-gray-900">
                   Отправить сообщение
                 </h3>
                 
                 {/* Уведомления */}
                 {submitStatus === 'success' && (
                   <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <p className="text-green-800 text-sm">Сообщение отправлено! Мы свяжемся с вами в ближайшее время.</p>
+                    <p className="text-green-800 text-xs sm:text-sm">Сообщение отправлено! Мы свяжемся с вами в ближайшее время.</p>
                   </div>
                 )}
                 
                 {submitStatus === 'error' && (
                   <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-red-800 text-sm">Ошибка при отправке. Возможно, сообщение помечено как спам. Попробуйте еще раз через минуту или позвоните нам.</p>
+                    <p className="text-red-800 text-xs sm:text-sm">Ошибка при отправке. Возможно, сообщение помечено как спам. Попробуйте еще раз через минуту или позвоните нам.</p>
                   </div>
                 )}
 
@@ -212,14 +213,14 @@ export default function Contact() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-700">
+                      <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1 text-gray-700">
                         Имя *
                       </label>
                       <input
                         {...register('name')}
                         type="text"
                         id="name"
-                        className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none ${
+                        className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none text-sm sm:text-base ${
                           errors.name 
                             ? 'border-red-300 focus:border-red-500' 
                             : 'border-gray-200 focus:border-gray-900'
@@ -231,14 +232,14 @@ export default function Contact() {
                       )}
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-700">
+                      <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1 text-gray-700">
                         Email *
                       </label>
                       <input
                         {...register('email')}
                         type="email"
                         id="email"
-                        className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none ${
+                        className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none text-sm sm:text-base ${
                           errors.email 
                             ? 'border-red-300 focus:border-red-500' 
                             : 'border-gray-200 focus:border-gray-900'
@@ -251,14 +252,14 @@ export default function Contact() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-1 text-gray-700">
+                    <label htmlFor="subject" className="block text-xs sm:text-sm font-medium mb-1 text-gray-700">
                       Тема *
                     </label>
                     <input
                       {...register('subject')}
                       type="text"
                       id="subject"
-                      className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none ${
+                      className={`w-full px-3 py-2 rounded-lg border transition-colors focus:outline-none text-sm sm:text-base ${
                         errors.subject 
                           ? 'border-red-300 focus:border-red-500' 
                           : 'border-gray-200 focus:border-gray-900'
@@ -270,14 +271,14 @@ export default function Contact() {
                     )}
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-700">
+                    <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1 text-gray-700">
                       Сообщение *
                     </label>
                     <textarea
                       {...register('message')}
                       id="message"
                       rows={4}
-                      className={`w-full px-3 py-2 rounded-lg border transition-colors resize-none focus:outline-none ${
+                      className={`w-full px-3 py-2 rounded-lg border transition-colors resize-none focus:outline-none text-sm sm:text-base ${
                         errors.message 
                           ? 'border-red-300 focus:border-red-500' 
                           : 'border-gray-200 focus:border-gray-900'
@@ -291,7 +292,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-3 rounded-lg font-medium transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed ${
+                    className={`w-full px-4 py-3 rounded-lg font-medium transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base ${
                       isSubmitting
                         ? 'bg-gray-400 text-white'
                         : 'bg-gray-900 text-white hover:bg-gray-800'

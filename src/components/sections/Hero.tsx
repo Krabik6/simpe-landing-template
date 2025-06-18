@@ -18,16 +18,16 @@ export default function Hero() {
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-black/30" /> {/* Уменьшенное затемнение для лучшей видимости фона */}
+        <div className="absolute inset-0 bg-black/40" /> {/* Увеличил затемнение для лучшей читаемости на мобильных */}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
             {hero.title}
           </motion.h1>
@@ -35,7 +35,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-200 mb-8"
+            className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 sm:mb-8 px-2 sm:px-0 leading-relaxed"
           >
             {hero.subtitle}
           </motion.p>
@@ -43,19 +43,19 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           >
             <Link
               href={hero.primaryButton.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors text-base sm:text-lg shadow-lg hover:shadow-xl"
             >
               {hero.primaryButton.text}
             </Link>
             <Link
               href={hero.secondaryButton.href}
-              className="px-8 py-3 border border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
+              className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors text-base sm:text-lg"
             >
               {hero.secondaryButton.text}
             </Link>
